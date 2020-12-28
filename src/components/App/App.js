@@ -1,27 +1,39 @@
-import React from 'react';
+import React from "react";
 
-import Grid from '@material-ui/core/Grid';
-import Image from 'material-ui-image';
+import Header from "../Header/Header";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
-import CardsGrid from '../CardsGrid';
-import TextGrid from '../TextGrid';
-import useStyles from './AppStyles';
+import Home from "../Home";
+import About from "../About";
+import Portofolio from "../Portofolio";
+import Blog from "../Blog";
+import Contact from "../Contact";
 
-const App = () => {
-  const classes = useStyles();
-
+function App() {
   return (
-    <React.Fragment>
-      <Header />
-      <Grid className={classes.heroContent}>
-        <Image src="https://source.unsplash.com/random" cover="true" aspectRatio="1/2" />
-        <TextGrid />
-        <CardsGrid />
-        <Footer />
-      </Grid>
-    </React.Fragment>
+    <BrowserRouter>
+      <React.Fragment>
+        <Header />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/portofolio">
+            <Portofolio />
+          </Route>
+          <Route path="/blog">
+            <Blog />
+          </Route>
+          <Route path="/contact">
+            <Contact />
+          </Route>
+        </Switch>
+      </React.Fragment>
+    </BrowserRouter>
   );
-};
+}
+
 export default App;

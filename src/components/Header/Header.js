@@ -7,34 +7,35 @@ import {
   Drawer,
   Link,
   MenuItem,
-} from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
-import React, { useState, useEffect } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+} from "@material-ui/core";
+import MenuIcon from "@material-ui/icons/Menu";
+import React, { useState, useEffect } from "react";
+import { Link as RouterLink } from "react-router-dom";
 
-import ElevationScroll from '../ElevationScroll';
-import useStyles from './HeaderStyles';
+import ElevationScroll from "../ElevationScroll";
+
+import useStyles from "./HeaderStyles";
 
 const headersData = [
   {
-    label: 'home',
-    href: '/',
+    label: "home",
+    href: "/",
   },
   {
-    label: 'about',
-    href: '/about',
+    label: "about",
+    href: "/about",
   },
   {
-    label: 'portofolio',
-    href: '/portofolio',
+    label: "portofolio",
+    href: "/portofolio",
   },
   {
-    label: 'blog',
-    href: '/blog',
+    label: "blog",
+    href: "/blog",
   },
   {
-    label: 'contact',
-    href: '/contact',
+    label: "contact",
+    href: "/contact",
   },
 ];
 
@@ -57,30 +58,32 @@ export default function Header() {
 
     setResponsiveness();
 
-    window.addEventListener('resize', () => setResponsiveness());
+    window.addEventListener("resize", () => setResponsiveness());
   }, []);
 
   const displayDesktop = () => {
     return (
       <Toolbar className={classes.toolbar}>
-        {femmecubatorLogo}
+        {logo}
         <div>{getMenuButtons()}</div>
       </Toolbar>
     );
   };
 
   const displayMobile = () => {
-    const handleDrawerOpen = () => setState((prevState) => ({ ...prevState, drawerOpen: true }));
-    const handleDrawerClose = () => setState((prevState) => ({ ...prevState, drawerOpen: false }));
+    const handleDrawerOpen = () =>
+      setState((prevState) => ({ ...prevState, drawerOpen: true }));
+    const handleDrawerClose = () =>
+      setState((prevState) => ({ ...prevState, drawerOpen: false }));
 
     return (
       <Toolbar>
         <IconButton
           {...{
-            edge: 'start',
-            color: 'inherit',
-            'aria-label': 'menu',
-            'aria-haspopup': 'true',
+            edge: "start",
+            color: "inherit",
+            "aria-label": "menu",
+            "aria-haspopup": "true",
             onClick: handleDrawerOpen,
           }}
         >
@@ -89,7 +92,7 @@ export default function Header() {
 
         <Drawer
           {...{
-            anchor: 'left',
+            anchor: "left",
             open: drawerOpen,
             onClose: handleDrawerClose,
           }}
@@ -97,7 +100,7 @@ export default function Header() {
           <div className={classes.drawerContainer}>{getDrawerChoices()}</div>
         </Drawer>
 
-        <div>{femmecubatorLogo}</div>
+        <div>{logo}</div>
       </Toolbar>
     );
   };
@@ -109,8 +112,8 @@ export default function Header() {
           {...{
             component: RouterLink,
             to: href,
-            color: 'inherit',
-            style: { textDecoration: 'none' },
+            color: "inherit",
+            style: { textDecoration: "none" },
             key: label,
           }}
         >
@@ -120,7 +123,7 @@ export default function Header() {
     });
   };
 
-  const femmecubatorLogo = (
+  const logo = (
     <Typography variant="h6" component="h1" className={classes.logo}>
       Corina Oprea
     </Typography>
@@ -132,7 +135,7 @@ export default function Header() {
         <Button
           {...{
             key: label,
-            color: 'inherit',
+            color: "inherit",
             to: href,
             component: RouterLink,
             className: classes.menuButton,
