@@ -7,16 +7,13 @@ import Footer from "../Footer/Footer";
 import CardsGrid from "../CardsGrid";
 import TextGrid from "../TextGrid";
 import useStyles from "./HomeStyles";
+import logo from "./logo.jpg";
 
 const Home = () => {
   const classes = useStyles();
   return (
     <Grid className={classes.heroContent}>
-      <Image
-        src="https://source.unsplash.com/random"
-        cover="true"
-        aspectRatio="1/2"
-      />
+      <Image src={logo} cover="true" aspectRatio="1/2" />
       <TextGrid />
       <CardsGrid />
       <Footer />

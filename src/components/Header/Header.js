@@ -135,7 +135,7 @@ export default function Header() {
         <Button
           {...{
             key: label,
-            color: "inherit",
+            color: "#fff",
             to: href,
             component: RouterLink,
             className: classes.menuButton,
@@ -147,12 +147,10 @@ export default function Header() {
     });
   };
   return (
-    <header>
-      <ElevationScroll>
-        <AppBar className={classes.header}>
-          {mobileView ? displayMobile() : displayDesktop()}
-        </AppBar>
-      </ElevationScroll>
-    </header>
+    <ElevationScroll>
+      <AppBar elevation={0} className={classes.header}>
+        {mobileView ? displayMobile() : displayDesktop()}
+      </AppBar>
+    </ElevationScroll>
   );
 }
