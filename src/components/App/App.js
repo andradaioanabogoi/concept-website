@@ -5,10 +5,13 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import Home from "../Home";
 import About from "../About";
-import Portofolio from "../Portofolio";
 import Blog from "../Blog";
 import Contact from "../Contact";
 import Footer from "../Footer/Footer";
+import Photography from "../Portofolio/Photography";
+import Video from "../Portofolio/Video";
+import Collage from "../Portofolio/Collage";
+
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -30,7 +33,9 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />
-          <Route path="/portofolio" component={Portofolio} />
+          <Route exact path="/portofolio/photography" component={Photography} />
+          <Route exact path="/portofolio/video" component={Video} />
+          <Route exact path="/portofolio/collage" component={Collage} />
           <Route path="/blog" component={Blog} />
           <Route path="/contact" component={Contact} />
         </Switch>

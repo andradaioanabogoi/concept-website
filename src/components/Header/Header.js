@@ -1,3 +1,7 @@
+import React, { useState, useEffect } from "react";
+import { Link as RouterLink } from "react-router-dom";
+import { withRouter } from "react-router";
+
 import {
   AppBar,
   Toolbar,
@@ -9,36 +13,12 @@ import {
   MenuItem,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
-import React, { useState, useEffect } from "react";
-import { Link as RouterLink } from "react-router-dom";
-import { withRouter } from "react-router";
 
 import ElevationScroll from "../ElevationScroll";
+import Dropdown from "../Dropdown";
 
 import useStyles from "./HeaderStyles";
-
-const headersData = [
-  {
-    label: "home",
-    href: "/",
-  },
-  {
-    label: "about",
-    href: "/about",
-  },
-  {
-    label: "portofolio",
-    href: "/portofolio",
-  },
-  {
-    label: "blog",
-    href: "/blog",
-  },
-  {
-    label: "contact",
-    href: "/contact",
-  },
-];
+import headersData from "./headerData";
 
 const Header = (props) => {
   const { location } = props;
@@ -48,9 +28,33 @@ const Header = (props) => {
     mobileView: false,
     drawerOpen: false,
   });
+  const [open, setOpen] = React.useState(false);
+  const anchorRef = React.useRef(null);
+
+  const handleClose = (event) => {
+    if (anchorRef.current && anchorRef.current.contains(event.target)) {
+      return;
+    }
+
+    setOpen(false);
+  };
+
+  const handleToggle = () => {
+    setOpen((prevOpen) => !prevOpen);
+  };
+
+  // return focus to the button when we transitioned from !open -> open
+  const prevOpen = React.useRef(open);
+  React.useEffect(() => {
+    if (prevOpen.current === true && open === false) {
+      anchorRef.current.focus();
+    }
+
+    prevOpen.current = open;
+  }, [open]);
 
   const { mobileView, drawerOpen } = state;
-
+  console.log("open", open);
   useEffect(() => {
     const setResponsiveness = () => {
       return window.innerWidth < 900
@@ -126,13 +130,46 @@ const Header = (props) => {
   };
 
   const logo = (
-    <Typography variant="h6" component="h1" className={classes.logo}>
-      Corina Oprea
-    </Typography>
+    <Link
+      {...{
+        component: RouterLink,
+        to: "/",
+        style: { textDecoration: "none" },
+        key: "label",
+      }}
+    >
+      <Typography variant="h6" component="h1" className={classes.logo}>
+        Corina Oprea
+      </Typography>
+    </Link>
   );
 
   const getMenuButtons = () => {
     return headersData.map(({ label, href }) => {
+      if (label === "portofolio") {
+        return (
+          <React.Fragment>
+            <Button
+              key={label}
+              color="#fff"
+              to={href}
+              className={classes.menuButton}
+              ref={anchorRef}
+              aria-controls={open ? "menu-list-grow" : undefined}
+              aria-haspopup="true"
+              onClick={handleToggle}
+            >
+              {label}
+            </Button>
+            <Dropdown
+              open={open}
+              setOpen={setOpen}
+              anchorRef={anchorRef}
+              handleClose={handleClose}
+            />
+          </React.Fragment>
+        );
+      }
       return (
         <Button
           {...{
