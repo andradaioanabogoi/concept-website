@@ -1,4 +1,5 @@
 import React from "react";
+import { Link as RouterLink } from "react-router-dom";
 
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
@@ -24,17 +25,17 @@ const CardsGrid = () => {
   const cardsData = [
     {
       label: "Photography",
-      link: "/photography",
+      link: "/portofolio/photography",
       imageUrl: photography,
     },
     {
       label: "Video",
-      link: "/video",
+      link: "/portofolio/video",
       imageUrl: video,
     },
     {
       label: "Collage",
-      link: "/collage",
+      link: "/portofolio/collage",
       imageUrl: collage,
     },
   ];
@@ -48,13 +49,18 @@ const CardsGrid = () => {
               <CardActionArea>
                 <CardContent className={classes.content}>
                   <Box
-                    display={"flex"}
-                    flexDirection={"column"}
-                    alignItems={"center"}
-                    justifyContent={"center"}
-                    minHeight={200}
-                    color={"common.white"}
-                    textAlign={"center"}
+                    {...{
+                      display: "flex",
+                      component: RouterLink,
+                      to: card.link,
+                      flexDirection: "column",
+                      alignItems: "center",
+                      style: { textDecoration: "none" },
+                      justifyContent: "center",
+                      minHeight: 200,
+                      color: "common.white",
+                      textAlign: "center",
+                    }}
                   >
                     <h1 className={classes.title}>{card.label}</h1>
                   </Box>
