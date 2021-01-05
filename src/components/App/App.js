@@ -1,6 +1,6 @@
 import React from "react";
 
-import Header from "../Header/Header";
+import AdaptiveHeader from "../Header/Header";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import Home from "../Home";
@@ -8,32 +8,36 @@ import About from "../About";
 import Portofolio from "../Portofolio";
 import Blog from "../Blog";
 import Contact from "../Contact";
+import Footer from "../Footer/Footer";
+import { makeStyles } from "@material-ui/core/styles";
 
-function App() {
+const useStyles = makeStyles((theme) => ({
+  grid: {
+    paddingTop: "100px",
+  },
+  container: {
+    backgroundColor: "white",
+  },
+}));
+
+const App = () => {
+  const classes = useStyles();
+
   return (
     <BrowserRouter>
-      <React.Fragment>
-        <Header />
+      <div className={classes.container}>
+        <AdaptiveHeader />
         <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/portofolio">
-            <Portofolio />
-          </Route>
-          <Route path="/blog">
-            <Blog />
-          </Route>
-          <Route path="/contact">
-            <Contact />
-          </Route>
+          <Route exact path="/" component={Home} />
+          <Route path="/about" component={About} />
+          <Route path="/portofolio" component={Portofolio} />
+          <Route path="/blog" component={Blog} />
+          <Route path="/contact" component={Contact} />
         </Switch>
-      </React.Fragment>
+        <Footer />
+      </div>
     </BrowserRouter>
   );
-}
+};
 
 export default App;

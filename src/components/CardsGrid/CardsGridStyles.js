@@ -10,6 +10,27 @@ const useStyles = makeStyles((theme) => ({
   cardContent: {
     flexGrow: 1,
   },
+  root: {
+    maxWidth: 304,
+    margin: "auto",
+    borderRadius: 0,
+    position: "relative",
+  },
+  content: {
+    padding: 24,
+  },
+  cta: {
+    display: "block",
+    textAlign: "center",
+    color: "#fff",
+    letterSpacing: "3px",
+    fontWeight: 200,
+    fontSize: 12,
+  },
+  title: {
+    color: "#fff",
+    letterSpacing: "2px",
+  },
 }));
 
 export default useStyles;

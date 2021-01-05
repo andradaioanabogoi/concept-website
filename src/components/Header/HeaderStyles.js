@@ -1,13 +1,13 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(() => ({
-  header: {
-    background: "none",
-  },
+  header: (isHome) => ({
+    background: isHome ? "none" : "#610C04",
+  }),
   logo: {
     fontFamily: "Work Sans, sans-serif",
     fontWeight: 600,
-    color: "#FFD300", //#B41D35
+    color: "#D5B998",
     textAlign: "left",
   },
   menuButton: {

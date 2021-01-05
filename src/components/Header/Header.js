@@ -11,6 +11,7 @@ import {
 import MenuIcon from "@material-ui/icons/Menu";
 import React, { useState, useEffect } from "react";
 import { Link as RouterLink } from "react-router-dom";
+import { withRouter } from "react-router";
 
 import ElevationScroll from "../ElevationScroll";
 
@@ -39,9 +40,10 @@ const headersData = [
   },
 ];
 
-export default function Header() {
-  const classes = useStyles();
-
+const Header = (props) => {
+  const { location } = props;
+  const isHome = location.pathname === "/";
+  const classes = useStyles(isHome);
   const [state, setState] = useState({
     mobileView: false,
     drawerOpen: false,
@@ -153,4 +155,7 @@ export default function Header() {
       </AppBar>
     </ElevationScroll>
   );
-}
+};
+const AdaptiveHeader = withRouter(Header);
+
+export default AdaptiveHeader;

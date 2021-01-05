@@ -4,6 +4,9 @@ const useStyles = makeStyles((theme) => ({
   grid: {
     paddingTop: "100px",
   },
+  container: {
+    backgroud: "white",
+  },
 }));
 
 export default useStyles;
