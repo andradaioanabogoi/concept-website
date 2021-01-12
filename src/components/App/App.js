@@ -6,6 +6,8 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "../Home";
 import About from "../About";
 import Blog from "../Blog";
+import Blog1 from "../Blog/collections/Blog1";
+import Blog2 from "../Blog/collections/Blog2";
 import Contact from "../Contact";
 import Footer from "../Footer/Footer";
 import Photography from "../Portofolio/Photography";
@@ -36,7 +38,9 @@ const App = () => {
           <Route exact path="/portofolio/photography" component={Photography} />
           <Route exact path="/portofolio/video" component={Video} />
           <Route exact path="/portofolio/collage" component={Collage} />
-          <Route path="/blog" component={Blog} />
+          <Route exact path="/blog" component={Blog} />
+          <Route exact path="/blog/blog1" component={Blog1} />
+          <Route exact path="/blog/blog2" component={Blog2} />
           <Route path="/contact" component={Contact} />
         </Switch>
         <Footer />

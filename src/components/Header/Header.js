@@ -22,8 +22,9 @@ import headersData from "./headerData";
 
 const Header = (props) => {
   const { location } = props;
-  const isHome = location.pathname === "/";
-  const classes = useStyles(isHome);
+  const isHomeOrBlog =
+    location.pathname === "/" || location.pathname.startsWith("/blog");
+  const classes = useStyles(isHomeOrBlog);
   const [state, setState] = useState({
     mobileView: false,
     drawerOpen: false,
