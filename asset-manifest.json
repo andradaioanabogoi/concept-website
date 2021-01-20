@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.js": "/concept-website/static/js/main.7e8177de.chunk.js",
+    "main.js.map": "/concept-website/static/js/main.7e8177de.chunk.js.map",
+    "runtime-main.js": "/concept-website/static/js/runtime-main.be17788f.js",
+    "runtime-main.js.map": "/concept-website/static/js/runtime-main.be17788f.js.map",
+    "static/js/2.0e7faa8b.chunk.js": "/concept-website/static/js/2.0e7faa8b.chunk.js",
+    "static/js/2.0e7faa8b.chunk.js.map": "/concept-website/static/js/2.0e7faa8b.chunk.js.map",
+    "index.html": "/concept-website/index.html",
+    "static/js/2.0e7faa8b.chunk.js.LICENSE.txt": "/concept-website/static/js/2.0e7faa8b.chunk.js.LICENSE.txt",
+    "static/media/1.db2f03dd.jpg": "/concept-website/static/media/1.db2f03dd.jpg",
+    "static/media/2.04026b9c.jpg": "/concept-website/static/media/2.04026b9c.jpg",
+    "static/media/3.e55330ac.jpg": "/concept-website/static/media/3.e55330ac.jpg",
+    "static/media/33.1e7363d1.jpg": "/concept-website/static/media/33.1e7363d1.jpg",
+    "static/media/4.aee9bf52.jpg": "/concept-website/static/media/4.aee9bf52.jpg",
+    "static/media/56.5a6ccdb2.jpg": "/concept-website/static/media/56.5a6ccdb2.jpg",
+    "static/media/8.ed55ab2f.jpg": "/concept-website/static/media/8.ed55ab2f.jpg",
+    "static/media/collage.1449ae6e.jpg": "/concept-website/static/media/collage.1449ae6e.jpg",
+    "static/media/logo.08acbe69.jpg": "/concept-website/static/media/logo.08acbe69.jpg",
+    "static/media/photography.2f506575.jpg": "/concept-website/static/media/photography.2f506575.jpg",
+    "static/media/video.5b6bea7b.jpg": "/concept-website/static/media/video.5b6bea7b.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.be17788f.js",
+    "static/js/2.0e7faa8b.chunk.js",
+    "static/js/main.7e8177de.chunk.js"
+  ]
+}
